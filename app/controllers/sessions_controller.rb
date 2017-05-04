@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  require 'Systemuser'
+  
   def index
     render layout: 'loginLayout'
   end
