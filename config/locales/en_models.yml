@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      user: Dude
+    attributes:
+      user:
+        name: 'Name'
+        city: 'City'
+        province: 'Province'
+        country: 'Country'
+        birth_date: 'Birthday Date'
+        civil: 'Marital Status'
+        sex: 'Sex'
+        profession: 'Profession'

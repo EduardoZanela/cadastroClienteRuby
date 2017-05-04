@@ -1,0 +1,59 @@
+<%= content_for :head do%>
+    <%= stylesheet_link_tag 'theme'%>
+<% end %>
+<div class="container">
+
+  <div class="page-header">
+    <h1><%= t'page.title' %></h1>
+    <p class="lead"><%= t'page.subtitle' %></p>
+  </div>
+  <%
+    if params[:sort].to_s == 'name'
+      sortType = User.human_attribute_name(:name)
+    elsif params[:sort].to_s == 'city'
+      sortType = User.human_attribute_name(:city)
+    elsif params[:sort].to_s == 'country'
+      sortType = User.human_attribute_name(:country)
+    else
+      sortType = 'Default'
+    end
+  %>
+  <h3> <%= t'page.formTitle' %><%= sortType%></h3>
+  <br>
+  <div class="row">
+    <table class="table">
+      <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th><%= User.human_attribute_name(:name)%></th>
+        <th><%= User.human_attribute_name(:city)%></th>
+        <th><%= User.human_attribute_name(:province)%></th>
+        <th><%= User.human_attribute_name(:country)%></th>
+        <th><%= User.human_attribute_name(:birth_date)%></th>
+        <th><%= User.human_attribute_name(:civil)%></th>
+        <th><%= User.human_attribute_name(:sex)%></th>
+        <th><%= User.human_attribute_name(:profession)%></th>
+        <th colspan="2"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+          <tr>
+            <th scope="row"><%= user.id %></th>
+            <td><%= user.name %></td>
+            <td><%= user.city %></td>
+            <td><%= user.province %></td>
+            <td><%= user.country %></td>
+            <td><%= user.birth_date %></td>
+            <td><%= user.civil %></td>
+            <td><%= user.sex %></td>
+            <td><%= user.profession %></td>
+            <td><%= link_to (t 'helpers.links.edit'), edit_user_path(user) %></td>
+            <td><%= link_to (t 'helpers.links.destroy'), user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
+  </div>
+</div> <!-- /container -->

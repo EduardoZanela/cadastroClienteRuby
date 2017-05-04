@@ -1,0 +1,29 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container" style="width: auto;">
+    <div class="navbar-header">
+      <!-- The mobile navbar-toggle button can be safely removed since you do not need it in a non-responsive implementation -->
+      <%= link_to 'Cadastro de Pessoas', root_path, class: 'navbar-brand' %>
+    </div>
+    <!-- Note that the .navbar-collapse and .collapse classes have been removed from the #navbar -->
+    <div id="navbar">
+      <%= render 'users/import_form' %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Novo Usuario', new_user_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatorios<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Ordenar por Nome', users_path(sort: 'name') %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Ordenar por Cidade', users_path(sort: 'city') %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Ordenar por Pais', users_path(sort: 'country') %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Ordenação Padrão', users_path() %></li>
+          </ul>
+        </li>
+        <li><%= link_to 'Logout', logout_path %></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

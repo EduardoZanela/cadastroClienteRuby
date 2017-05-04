@@ -1,0 +1,21 @@
+"pt-br":
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de um total de <b>%{total}</b>
+      one_page:
+        display_entries:
+          one: Exibindo <b>1</b> %{entry_name}
+          other: Exibindo <b>%{count}</b> %{entry_name}
+          zero: Nenhum %{entry_name} encontrado
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      next: Próximo &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"
+  page:
+    title: 'Sistema de Cadastro de Usuario'
+    subtitle: 'Sistema feito para aula de teste e qualidade de software com objetivo de realizar testes unitarios e testes de aceitação. Sistema consistem em um cadastro de usuarios onde é possivel importar usuario para o sistema atravéz de um arquivo csv. Todas operações padrão estão disponiveis.'
+    formTitle: 'Usuarios cadastrados no sistema ordenados por '

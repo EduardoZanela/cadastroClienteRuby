@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AulaTesteQualidade</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= stylesheet_link_tag 'theme'%>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+
+    <%= yield :head %>
+  </head>
+
+  <body>
+    <%= render 'layouts/nav_menu' %>
+    <%if notice%>
+      <div class="container">
+        <div class="alert alert-success">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong><%= notice %></strong>
+        </div>
+      </div>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>

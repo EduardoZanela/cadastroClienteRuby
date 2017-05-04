@@ -1,0 +1,4 @@
+<%= form_tag file_users_path, multipart: true, class: 'navbar-form navbar-left' do%>
+    <%= file_field_tag :file, class: "form-control"%>
+    <%= submit_tag "Upload Users", class: "btn btn-default" %>
+<% end %>
