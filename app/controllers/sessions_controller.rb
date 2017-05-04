@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   def index
     render layout: 'loginLayout'
   end
