@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users do
-    collection {post :file}
+    collection {post :file }
+    collection {get :export}
   end
 
   root to: 'users#index'

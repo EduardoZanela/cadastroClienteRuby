@@ -7,3 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Systemuser.create(email: 'eduardogzanela@gmail.com', password: '123456')
+
+5000.times do |i|
+
+
+
+end

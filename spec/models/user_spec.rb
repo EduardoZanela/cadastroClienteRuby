@@ -10,7 +10,6 @@ RSpec.describe User, type: :model do
       test.country = 'EUA'
       test.birth_date = '02/07/1995'
       test.civil = 'Divorciado'
-      test.sex = 'Masculino'
       test.profession = 'Analista'
       expect(test.valid?).to be_truthy
     end
