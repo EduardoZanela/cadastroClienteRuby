@@ -2,7 +2,19 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context "User Validations" do
-    it "valid user?" do
+    it "Usuario valido?" do
+      test =  User.new()
+      test.name = 'Eduardo'
+      test.city = 'Passo fundo'
+      test.province = 'RS'
+      test.country = 'EUA'
+      test.birth_date = '02/07/1995'
+      test.civil = 'Divorciado'
+      test.sex = 'Masc'
+      test.profession = 'Analista'
+      expect(test.valid?).to be_truthy
+    end
+    it "Usuario Invalido?" do
       test =  User.new()
       test.name = 'Eduardo'
       test.city = 'Passo fundo'
@@ -11,9 +23,9 @@ RSpec.describe User, type: :model do
       test.birth_date = '02/07/1995'
       test.civil = 'Divorciado'
       test.profession = 'Analista'
-      expect(test.valid?).to be_truthy
+      expect(test.valid?).to be_falsey
     end
-    it "Create User!" do
+    it "Criando Usuario!" do
       test =  User.new()
       test.name = 'Eduardo'
       test.city = 'Passo fundo'
@@ -24,6 +36,7 @@ RSpec.describe User, type: :model do
       test.sex = 'Masculino'
       test.profession = 'Analista'
       expect(test.save).to be_truthy
+      test.destroy
     end
     it "Delete User!" do
       test =  User.new()
