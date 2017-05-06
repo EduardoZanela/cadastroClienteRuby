@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+   puts @map
     if params[:sort].to_s == 'name'
       @users = Kaminari.paginate_array(User.all.sort_by {|u| u.name.downcase }).page(params[:page]).per(10)
     elsif params[:sort].to_s == 'city'
@@ -73,8 +74,13 @@ class UsersController < ApplicationController
   end
 
   def file
-    User.import(params[:file])
-    redirect_to users_path, notice: 'Imported with Sucess'
+    @map = User.import(params[:file])
+    message = @map["sucess"].to_s
+    @map.delete("sucess")
+    @map.each { |k, v| message += "Linha: #{k} erro: #{v} " }
+    respond_to do |format|
+      format.html{redirect_to users_url, notice: message }
+    end
   end
 
   def export

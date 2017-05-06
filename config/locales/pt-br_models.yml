@@ -1,5 +1,31 @@
 "pt-br":
   activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependente
+      models:
+        user:
+          attributes:
+            name:
+              blank: "em branco!"
+            city:
+              blank: "em branco!"
+            province:
+              blank: "em branco!"
+            country:
+              blank: "em branco!"
+            birth_date:
+              blank: "em branco!"
+            civil:
+              blank: "em branco!"
+            sex:
+              blank: "branco!"
+            profession:
+              blank: "em branco!"
+
     models:
       user: 'Cliente'
     attributes:
