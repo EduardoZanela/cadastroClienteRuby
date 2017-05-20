@@ -10,12 +10,10 @@ Systemuser.create(email: 'eduardo', password: '123456')
 Systemuser.create(email: 'felipe', password: '123456')
 Systemuser.create(email: 'admin', password: 'admin')
 
-10.times do |i|
+100.times do |i|
 
   User.create(name: Faker::Name.name, city: Faker::Address.city,
               province: Faker::Address.state, country: Faker::Address.country, birth_date: Faker::Date.birthday(18, 65),
-              civil: 'Solteiro', sex: 'Masc', profession: Faker::Company.profession)
-
-Faker::Name.name
+              civil: Faker::Demographic.marital_status, sex: Faker::Demographic.sex, profession: Faker::Company.profession)
 
 end

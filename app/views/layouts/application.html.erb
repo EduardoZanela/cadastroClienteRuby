@@ -15,7 +15,7 @@
     <%= render 'layouts/nav_menu' %>
     <%if notice%>
       <div class="container">
-        <div class="alert alert-success">
+        <div class="alert <% if params["sucess"] == true%>alert-success<%else%>alert-danger<%end%> ">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <strong><%= notice %></strong>
         </div>

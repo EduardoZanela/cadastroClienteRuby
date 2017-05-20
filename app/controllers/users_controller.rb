@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     elsif params[:sort].to_s == 'city'
       @users = Kaminari.paginate_array(User.all.sort_by {|u| u.city.downcase }).page(params[:page]).per(10)
     elsif params[:sort].to_s == 'country'
-      @users = Kaminari.paginate_array(User.all.sort_by {|u| u.country.downcase }).page(params[:page]).per(5)
+      @users = Kaminari.paginate_array(User.all.sort_by {|u| u.country.downcase }).page(params[:page]).per(10)
     else
       @users = Kaminari.paginate_array(User.all).page(params[:page]).per(10)
     end
@@ -75,11 +75,22 @@ class UsersController < ApplicationController
 
   def file
     @map = User.import(params[:file])
-    message = @map["sucess"].to_s
-    @map.delete("sucess")
-    @map.each { |k, v| message += "Linha: #{k} erro: #{v} " }
+    sucess = @map["noError"]
+    if @map["noError"]
+      message = @map["sucess"].to_s
+      @map.delete("sucess")
+      @map.delete("noError")
+      @map.each do |k, v|
+        message += "Linha: #{k} Erro: "
+        v.each do |a, b|
+          message += b + " "
+        end
+      end
+    else
+      message = "Arquivo não informado ou formato do arquivo errado. Informe um arquivo .csv"
+    end
     respond_to do |format|
-      format.html{redirect_to users_url, notice: message }
+      format.html{redirect_to users_path(sucess: sucess), notice: message}
     end
   end
 

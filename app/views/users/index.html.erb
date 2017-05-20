@@ -7,9 +7,6 @@
     <h1><%= t'page.title' %></h1>
     <p class="lead"><%= t'page.subtitle' %></p>
   </div>
-  <% if params["sucess"] %>
-    <%= params["sucess"] %>
-  <% end %>
   <%
     if params[:sort].to_s == 'name'
       sortType = User.human_attribute_name(:name)
@@ -18,7 +15,7 @@
     elsif params[:sort].to_s == 'country'
       sortType = User.human_attribute_name(:country)
     else
-      sortType = 'Default'
+      sortType = 'Padrão'
     end
   %>
   <h3> <%= t'page.formTitle' %><%= sortType%></h3>
