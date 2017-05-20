@@ -55,5 +55,28 @@ RSpec.describe User, type: :model do
       test = User.all
       expect(test).to be_truthy
     end
+    it "Capybara Sign Test" do
+      Systemuser.create(email: 'eduardogzanela@gmail.com', password: '123456')
+      visit '/login'
+
+
+      fill_in 'email', with: 'eduardogzanela@gmail.com'
+      fill_in 'password', with: '123456'
+
+
+      click_button 'Log In'
+
+
+      expect(current_path).to eql('/')
+
+
+      #expect(page).to have_content 'Usuario ou senha incorretos'
+
+    end
+    it "Test Capybara" do
+      loginUser
+      expect(page).to have_content 'Sistema'
+
+    end
   end
 end
